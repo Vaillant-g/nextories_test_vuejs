@@ -56,6 +56,9 @@
           <b-jumbotron class="my-1">
             <p>Le volume du meuble est de {{ volume_meuble }} m3</p>
           </b-jumbotron>
+          <b-button v-on:click="ajout_meuble" variant="primary"
+            >Ajouter</b-button
+          >
         </b-col>
       </b-row>
     </div>
@@ -71,7 +74,8 @@ export default {
   props: {},
   data: function() {
     return {
-      nom_meuble: "",
+      liste_meubles: [],
+      nom_meuble: null,
       longueur_meuble: null,
       largeur_meuble: null,
       hauteur_meuble: null,
@@ -81,13 +85,32 @@ export default {
   },
   computed: {
     volume_meuble: function() {
-      return (
-        (this.longueur_meuble / 100 ) * (this.largeur_meuble  / 100 ) * (this.hauteur_meuble / 100 )
-      );
+      var volume =
+        (this.longueur_meuble / 100) *
+        (this.largeur_meuble / 100) *
+        (this.hauteur_meuble / 100);
+      return Math.round(volume * 100) / 100;
     }
   },
   methods: {
-    onlyNumber: function() {}
+    ajout_meuble: function() {
+      if (
+        this.nom_meuble &&
+        this.longueur_meuble &&
+        this.largeur_meuble &&
+        this.hauteur_meuble
+      ) {
+        this.liste_meubles.push({
+          nom: this.nom_meuble,
+          longueur: this.longueur_meuble,
+          largeur: this.largeur_meuble,
+          hauteur: this.hauteur_meuble
+        });
+      } else {
+        alert("Veuillez remplir toutes les informations du meuble.");
+      }
+      console.log(this.liste_meubles);
+    }
   }
 };
 </script>
