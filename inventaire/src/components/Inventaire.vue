@@ -10,7 +10,20 @@
       <div class="liste_meubles">
         <ul id="example-1">
           <li v-for="item in liste" :key="item.id">
-            <h4>{{ item.nom }}</h4>
+            <h4>
+              {{ item.nom }}
+              <span class="float_right">
+                <b-icon
+                  icon="trash"
+                  v-on:click="
+                    liste.splice(
+                      liste.findIndex(x => x.id === item.id),
+                      1
+                    )
+                  "
+                ></b-icon
+              ></span>
+            </h4>
             <p>{{ volume(item) + "m3" }}</p>
           </li>
         </ul>
@@ -59,5 +72,9 @@ li {
 
 .liste_meubles {
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.float_right {
+  float: right;
 }
 </style>
