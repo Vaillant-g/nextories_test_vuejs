@@ -53,9 +53,7 @@
         </b-col>
 
         <b-col class="volume">
-          <b-jumbotron class="my-1">
-            <p>Le volume du meuble est de {{ volume_meuble }} m3</p>
-          </b-jumbotron>
+          <p>Le volume du meuble est de {{ volume_meuble }} m3</p>
           <b-button v-on:click="ajout_meuble" variant="primary"
             >Ajouter</b-button
           >
@@ -134,5 +132,9 @@ export default {
 <style scoped>
 .calculatrice label {
   text-align: right;
+}
+
+.volume p {
+  padding-top: 50px;
 }
 </style>

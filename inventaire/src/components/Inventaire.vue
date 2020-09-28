@@ -3,14 +3,18 @@
     <div class="Inventaire">
       <b-row>
         <b-col><h1>Inventaire</h1> </b-col>
-        <b-col><h3>Volume total : {{ volume_total}}</h3> </b-col>
+        <b-col
+          ><h1>Volume total : {{ volume_total }} m3</h1>
+        </b-col>
       </b-row>
-      <ul id="example-1">
-        <li v-for="item in liste" :key="item.id">
-          <h4>{{ item.nom }}</h4>
-          <p>{{ volume(item) + "m3" }}</p>
-        </li>
-      </ul>
+      <div class="liste_meubles">
+        <ul id="example-1">
+          <li v-for="item in liste" :key="item.id">
+            <h4>{{ item.nom }}</h4>
+            <p>{{ volume(item) + "m3" }}</p>
+          </li>
+        </ul>
+      </div>
     </div>
   </b-container>
 </template>
@@ -30,10 +34,10 @@ export default {
   computed: {
     volume_total: function() {
       var volume_total = 0;
-      for (let i = 0; i < this.liste.length ; i++) {
-        volume_total += this.volume(this.liste[i])
+      for (let i = 0; i < this.liste.length; i++) {
+        volume_total += this.volume(this.liste[i]);
       }
-      return (volume_total);
+      return Math.round(volume_total * 100) / 100;
     }
   },
   methods: {
@@ -51,5 +55,9 @@ export default {
 <style scoped>
 li {
   text-align: left;
+}
+
+.liste_meubles {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
 }
 </style>
