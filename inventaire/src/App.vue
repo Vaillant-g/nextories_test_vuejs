@@ -1,23 +1,29 @@
 <template>
   <div id="app">
-    <Calculatrice msg="Welcome to Your Vue.js App" />
+    <Calculatrice :liste="this.liste" />
+    <Inventaire :liste="this.liste" />
   </div>
 </template>
 
 <script>
 import Calculatrice from "./components/Calculatrice.vue";
-import Vue from 'vue'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import Inventaire from "./components/Inventaire.vue";
+import Vue from "vue";
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 
-// Install BootstrapVue
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 export default {
   name: "App",
   components: {
-    Calculatrice
+    Calculatrice,
+    Inventaire
+  },
+  data: function() {
+    return {
+      liste: []
+    };
   }
 };
 </script>
@@ -30,5 +36,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  text-align: left;
+}
+
+ul {
+  list-style: none;
 }
 </style>

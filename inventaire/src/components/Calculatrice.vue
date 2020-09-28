@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container sm>
     <div class="calculatrice">
       <h1>Calculatrice</h1>
       <b-row>
@@ -71,10 +71,10 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 
 export default {
   name: "CalculatriceItem",
-  props: {},
+  props: { liste: Array },
   data: function() {
     return {
-      liste_meubles: [],
+      //      liste_meubles: [],
       nom_meuble: null,
       longueur_meuble: null,
       largeur_meuble: null,
@@ -100,16 +100,20 @@ export default {
         this.largeur_meuble &&
         this.hauteur_meuble
       ) {
-        this.liste_meubles.push({
+        this.liste.push({
           nom: this.nom_meuble,
           longueur: this.longueur_meuble,
           largeur: this.largeur_meuble,
           hauteur: this.hauteur_meuble
         });
+        this.nom_meuble = null;
+        this.longueur_meuble = null;
+        this.largeur_meuble = null;
+        this.hauteur_meuble = null;
       } else {
         alert("Veuillez remplir toutes les informations du meuble.");
       }
-      console.log(this.liste_meubles);
+      // console.log(this.liste);
     }
   }
 };
