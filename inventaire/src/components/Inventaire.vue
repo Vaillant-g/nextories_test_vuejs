@@ -1,6 +1,6 @@
 <template>
   <b-container>
-    <div class="Inventaire">
+    <div class="Inventaire" v-show="this.liste.length > 0">
       <b-row>
         <b-col><h1>Inventaire</h1> </b-col>
         <b-col
@@ -34,7 +34,7 @@
         </ul>
       </div>
       <b-button
-        v-show="this.listes_meubles_selectionnes.length !== 0"
+        v-show="this.listes_meubles_selectionnes.length > 0"
         class="float_left"
         v-on:click="suppression_meubles_selectionnes"
         variant="danger"
