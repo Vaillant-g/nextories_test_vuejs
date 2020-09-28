@@ -6,7 +6,7 @@
         <b-col><h3>Volume total : {{ volume_total}}</h3> </b-col>
       </b-row>
       <ul id="example-1">
-        <li v-for="item in liste" :key="item.nom">
+        <li v-for="item in liste" :key="item.id">
           <h4>{{ item.nom }}</h4>
           <p>{{ volume(item) + "m3" }}</p>
         </li>

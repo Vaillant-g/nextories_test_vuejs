@@ -100,12 +100,24 @@ export default {
         this.largeur_meuble &&
         this.hauteur_meuble
       ) {
-        this.liste.push({
-          nom: this.nom_meuble,
-          longueur: this.longueur_meuble,
-          largeur: this.largeur_meuble,
-          hauteur: this.hauteur_meuble
-        });
+        let id = this.nom_meuble + this.volume_meuble.toString();
+        let id_unique = true;
+        for (let i = 0; i < this.liste.length; i++) {
+          if (this.liste[i].id === id) {
+            alert(
+              "Un meuble ayant ce nom et ce volume existe déjà, veuillez modifier le nom."
+            );
+            id_unique = false;
+          }
+        }
+        if (id_unique)
+          this.liste.push({
+            nom: this.nom_meuble,
+            id: id,
+            longueur: this.longueur_meuble,
+            largeur: this.largeur_meuble,
+            hauteur: this.hauteur_meuble
+          });
         this.nom_meuble = null;
         this.longueur_meuble = null;
         this.largeur_meuble = null;
