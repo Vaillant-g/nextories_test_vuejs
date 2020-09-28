@@ -22,30 +22,30 @@ export default {
   },
   data: function() {
     return {
-      // liste: [
-      //   {
-      //     hauteur: "100",
-      //     id: "Table4",
-      //     largeur: "200",
-      //     longueur: "200",
-      //     nom: "Table"
-      //   },
-      //   {
-      //     hauteur: "100",
-      //     id: "Table23",
-      //     largeur: "100",
-      //     longueur: "300",
-      //     nom: "Table2"
-      //   },
-      //   {
-      //     hauteur: "100",
-      //     id: "chaise1.5",
-      //     largeur: "100",
-      //     longueur: "150",
-      //     nom: "chaise"
-      //   }
-      // ]
-      liste: []
+      liste: [
+        {
+          hauteur: "100",
+          id: "Table4",
+          largeur: "200",
+          longueur: "200",
+          nom: "Table"
+        },
+        {
+          hauteur: "100",
+          id: "Table23",
+          largeur: "100",
+          longueur: "300",
+          nom: "Table2"
+        },
+        {
+          hauteur: "100",
+          id: "chaise1.5",
+          largeur: "100",
+          longueur: "150",
+          nom: "chaise"
+        }
+      ]
+      //liste: []
     };
   }
 };
