@@ -53,7 +53,7 @@
         </b-col>
 
         <b-col class="volume">
-          <p>Le volume du meuble est de {{ volume_meuble }} m3</p>
+          <p>Le volume du meuble est de <span class="important"> {{ volume_meuble }} </span> m3</p>
           <b-button v-on:click="ajout_meuble" variant="primary"
             >Ajouter</b-button
           >
@@ -130,6 +130,9 @@ export default {
 </script>
 
 <style scoped>
+.important {
+  font-weight: bold;
+}
 .calculatrice label {
   text-align: right;
 }

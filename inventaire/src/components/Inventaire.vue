@@ -23,12 +23,7 @@
                   <span class="float_right">
                     <b-icon
                       icon="trash"
-                      v-on:click="
-                        liste.splice(
-                          liste.findIndex(x => x.id === item.id),
-                          1
-                        )
-                      "
+                      v-on:click="trash_onclick(item.id)"
                     ></b-icon
                   ></span>
                 </h4>
@@ -84,14 +79,19 @@ export default {
       if (index === -1) {
         this.listes_meubles_selectionnes.push(e);
       } else this.listes_meubles_selectionnes.splice(index, 1);
-      //      console.log(this.listes_meubles_selectionnes);
+    },
+    trash_onclick: function(id) {
+      this.liste.splice(
+        this.liste.findIndex(x => x.id === id),
+        1
+      );
+      let index = this.listes_meubles_selectionnes.indexOf(id);
+      this.listes_meubles_selectionnes.splice(index, 1);
     },
     suppression_meubles_selectionnes: function() {
       this.listes_meubles_selectionnes.forEach(element => {
         this.liste.splice(
-          this.liste.findIndex(
-            x => x.id === element
-          ),
+          this.liste.findIndex(x => x.id === element),
           1
         );
       });
