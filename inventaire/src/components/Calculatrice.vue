@@ -123,7 +123,7 @@ export default {
       } else {
         alert("Veuillez remplir toutes les informations du meuble.");
       }
-      console.log(this.liste);
+      //console.log(this.liste);
     }
   }
 };
